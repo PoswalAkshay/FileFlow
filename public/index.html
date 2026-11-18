@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FileFlow | File Transfer</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/app.js"></script>
+</head>
+
+<body>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">↗</span>
+        <span>FileFlow</span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span> Server online</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LOCAL FILE TRANSFER</p>
+        <h1>Move files<br /><span>without the friction.</span></h1>
+        <p class="hero-copy">Send files to this server from your browser. Fast, private, and easy to track.</p>
+      </div>
+      <div class="hero-stat">
+        <strong id="file-count">0</strong>
+        <span>files received</span>
+      </div>
+    </section>
+
+    <section class="network-card">
+      <div class="network-icon">⌁</div>
+      <div class="network-copy">
+        <p class="eyebrow">WIRELESS CONNECTION</p>
+        <h2>Connect another device</h2>
+        <p>Connect both devices to the same Wi-Fi, then open this address on the other PC or phone:</p>
+        <div id="network-addresses" class="network-addresses">Finding your Wi-Fi address...</div>
+        <small>Keep this computer and the server running while transferring.</small>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="upload-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STEP 01</p>
+            <h2>Choose files to send</h2>
+          </div>
+          <span class="shortcut">⌘ U</span>
+        </div>
+        <label class="drop-zone" id="drop-zone" for="file-input">
+          <input id="file-input" type="file" multiple />
+          <span class="upload-icon">↑</span>
+          <strong>Drop files here</strong>
+          <span>or <u>browse from your device</u></span>
+          <small>Any file type · Multiple files supported</small>
+        </label>
+        <div id="queue" class="queue" aria-live="polite"></div>
+        <div class="speed-panel" aria-live="polite">
+          <div class="speed-metric">
+            <span>Current speed</span>
+            <strong id="current-speed">0 B/s</strong>
+          </div>
+          <div class="speed-metric">
+            <span>Average speed</span>
+            <strong id="average-speed">0 B/s</strong>
+          </div>
+        </div>
+        <button id="send-button" class="primary-button" type="button" disabled>
+          <span>Send files</span><span>→</span>
+        </button>
+        <p id="message" class="message" role="status"></p>
+      </div>
+
+      <aside class="received-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STEP 02</p>
+            <h2>Received files</h2>
+          </div>
+          <button id="refresh-button" class="icon-button" type="button" title="Refresh files">↻</button>
+        </div>
+        <div id="received-list" class="received-list">
+          <div class="empty-state">No files have been received yet.</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>Built for your local network</span>
+      <span>PORT 8080</span>
+    </footer>
+  </main>
+</body>
+
+</html>

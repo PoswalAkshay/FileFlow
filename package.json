@@ -1,0 +1,9 @@
+{
+  "name": "file-transfer-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple browser-based file transfer project.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
